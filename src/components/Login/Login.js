@@ -2,10 +2,10 @@ import React from "react";
 
 const Login = () => {
   return (
-    <form>
+    <form method="POST" action="/login">
       <h3>Login</h3>
-      <input type="text" value="username" placeholder="username" />
-      <input type="text" value="password" placeholder="username" />
+      <input type="text" placeholder="username" name="username" />
+      <input type="password" placeholder="password" name="password" />
       <input type="submit" />
     </form>
   );

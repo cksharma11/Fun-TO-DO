@@ -5,11 +5,16 @@ const logger = (req, res, next) => {
   next();
 };
 
-const dbConfig = mysql.createConnection({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PWD,
-  database: "todo"
-});
+const util = require("util");
 
-module.exports = { logger, dbConfig };
+const config = {
+  host: "us-cdbr-iron-east-05.cleardb.net",
+  user: "b5d7b33082b4f5",
+  password: "143a102d",
+  database: "heroku_8c73c7264a704e7"
+};
+
+const pool = mysql.createPool(config);
+pool.query = util.promisify(pool.query);
+
+module.exports = { logger, pool };
