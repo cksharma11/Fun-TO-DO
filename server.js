@@ -20,6 +20,7 @@ app.set("view engine", "html");
 app.post("/login", handlers.loginHandler);
 app.post("/signup", handlers.signUpHandler);
 app.post("/addTodo", handlers.addTodoHandler);
+app.post("/todos", handlers.getTodoHandler);
 
 app.get("*", (req, res) => {
   res.render("index.html");

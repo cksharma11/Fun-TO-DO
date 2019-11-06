@@ -37,8 +37,16 @@ const addTodoHandler = async (req, res) => {
   res.send(JSON.stringify(result));
 };
 
+const getTodoHandler = async (req, res) => {
+  const { username } = req.cookies;
+  const query = `select * from todos where username="${username}"`;
+  const todos = await executeQuery(query);
+  res.send(JSON.stringify(todos));
+};
+
 module.exports = {
   loginHandler,
   signUpHandler,
-  addTodoHandler
+  addTodoHandler,
+  getTodoHandler
 };
