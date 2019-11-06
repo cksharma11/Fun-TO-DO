@@ -31,7 +31,8 @@ const addTodoHandler = async (req, res) => {
   const result = await insertQuery("todos", {
     todo,
     username,
-    time: JSON.stringify(Date.now())
+    time: JSON.stringify(Date.now()),
+    done: false
   });
   res.send(JSON.stringify(result));
 };
