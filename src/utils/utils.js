@@ -1,11 +1,10 @@
 const mysql = require("mysql");
+const util = require("util");
 
 const logger = (req, res, next) => {
   console.log(req.method, req.url);
   next();
 };
-
-const util = require("util");
 
 const config = {
   host: "us-cdbr-iron-east-05.cleardb.net",

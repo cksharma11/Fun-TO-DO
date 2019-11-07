@@ -24,9 +24,11 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div>
-        <h3>FUN TO-DO</h3>
-        <AddTodoPrompt />
+      <div className="todoMainContainer">
+        <div className="stickyHeader">
+          <h3 className="homeHeader">FUN TO-DO</h3>
+          <AddTodoPrompt />
+        </div>
         <TodoList todos={this.state.todos} />
       </div>
     );

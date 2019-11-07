@@ -4,7 +4,7 @@ import Todo from "../Todo/Todo";
 const TodoList = ({ todos }) => {
   return (
     <div>
-      {todos.map(todo => {
+      {todos.reverse().map(todo => {
         return <Todo todo={todo} />;
       })}
     </div>

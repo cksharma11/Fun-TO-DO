@@ -67,6 +67,12 @@ h3 {
   padding: 5px;
 }
 
+.addTodo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .addTodoBox {
   width: 400px;
   border-radius: 2px;
@@ -77,22 +83,18 @@ h3 {
 
 .addTodoButton {
   height: 25px;
-  margin: 5px;
-  padding: 7px;
-  width: 100px;
   border: none;
   border: 1px solid #000;
   border-radius: 2px;
+  width: 100px;
+  margin-bottom: 6px;
+  margin-top: 0 !important;
 }
 
 .todoContainer {
   display: flex;
   justify-content: space-between;
   margin-bottom: 10px;
-}
-
-.addTodoButton {
-  margin: 0;
 }
 
 button {
@@ -111,4 +113,25 @@ button:focus {
   border: 1px solid black;
   width: 80%;
   border-radius: 2px;
+}
+
+.done {
+  background: green;
+  text-decoration: line-through;
+}
+
+.todoMainContainer {
+  width: 60vw;
+}
+
+.markAsDone {
+  width: 150px;
+}
+
+.homeHeader {
+  border-bottom: 1px solid black;
+}
+
+.stickyHeader {
+  position: sticky;
 }
