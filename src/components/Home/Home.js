@@ -25,6 +25,7 @@ class Home extends React.Component {
   render() {
     return (
       <div>
+        <h3>FUN TO-DO</h3>
         <AddTodoPrompt />
         <TodoList todos={this.state.todos} />
       </div>
