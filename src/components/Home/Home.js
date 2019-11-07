@@ -5,11 +5,9 @@ import TodoList from "../TodoList/TodoList";
 const Home = () => {
   const [todos, setTodos] = useState([]);
   const updateTodos = async () => {
-    const todos = await fetch("/todos")
+    await fetch("/todos")
       .then(res => res.json())
-      .then(res => this.setState({ todos: res }));
-
-    setTodos(todos);
+      .then(res => setTodos({ todos: res }));
   };
 
   useEffect(() => {

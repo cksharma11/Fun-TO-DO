@@ -4,7 +4,9 @@ const TABLES = {
 };
 
 const LABLES = {
-  LOGIN_ERROR: "username or password is incorrect"
+  LOGIN_ERROR: "username or password is incorrect",
+  LOGIN: "LOGIN",
+  SIGNUP: "SIGN UP"
 };
 
 module.exports = {

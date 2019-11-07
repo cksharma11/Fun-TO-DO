@@ -1,9 +1,11 @@
 import React from "react";
 
+const SIGN_UP_TITLE = "SIGN UP";
+
 const SignUp = () => {
   return (
     <form method="POST" action="/signup">
-      <h3>SignUp</h3>
+      <h3>{SIGN_UP_TITLE}</h3>
       <input type="text" placeholder="username" name="username" />
       <input type="password" placeholder="password" name="password" />
       <input type="submit" />
