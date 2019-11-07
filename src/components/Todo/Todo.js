@@ -10,7 +10,11 @@ const Todo = ({ todo }) => {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(body)
-    });
+    })
+      .then(res => res.json())
+      .then(res => {
+        if (!res.error) window.location.reload();
+      });
   };
 
   return (

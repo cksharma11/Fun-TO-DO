@@ -48,9 +48,9 @@ const getTodoHandler = async (req, res) => {
 };
 
 const toggleTodoStateHandler = async (req, res) => {
-  const todo  = req.body;
-  await toggleTodoStateQuery(todo);
-  res.redirect("/home");
+  const todo = req.body;
+  const result = toggleTodoStateQuery(todo);
+  res.send(result);
 };
 
 module.exports = {

@@ -29,7 +29,7 @@ const executeSignUpQuery = async username => {
 };
 
 const toggleTodoStateQuery = async todo => {
-  const { time, done } = todo;
+  const { time, done } = todo.todo;
   const query = `update todos set done=${!done} where time=${time}`;
   const result = await executeQuery(query);
   if (result.length) {
