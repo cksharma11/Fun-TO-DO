@@ -1,25 +1,35 @@
-import React, { useState, useEffect } from "react";
-import AddTodoPromot from "../AddTodoPromot/AddTodoPromot";
+import React from "react";
+import AddTodoPrompt from "../AddTodoPrompt/AddTodoPrompt";
 import TodoList from "../TodoList/TodoList";
 
-const Home = () => {
-  const [todos, setTodos] = useState([]);
-  const updateTodos = async () => {
-    await fetch("/todos")
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos: []
+    };
+  }
+
+  async loadTodos() {
+    await fetch("/todos", { method: "POST" })
       .then(res => res.json())
-      .then(res => setTodos({ todos: res }));
-  };
+      .then(res => {
+        this.setState({ todos: res });
+      });
+  }
 
-  useEffect(() => {
-    updateTodos();
-  }, []);
+  async componentDidMount() {
+    await this.loadTodos();
+  }
 
-  return (
-    <div>
-      <AddTodoPromot />
-      <TodoList todos={todos} />
-    </div>
-  );
-};
+  render() {
+    return (
+      <div>
+        <AddTodoPrompt />
+        <TodoList todos={this.state.todos} />
+      </div>
+    );
+  }
+}
 
 export default Home;

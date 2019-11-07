@@ -30,21 +30,20 @@ const loginHandler = async (req, res) => {
 const addTodoHandler = async (req, res) => {
   const { todo } = req.body;
   const { username } = req.cookies;
-  const result = await insertQuery(TABLES.todos, {
+  await insertQuery(TABLES.todos, {
     todo,
     username,
     time: JSON.stringify(Date.now()),
     done: false
   });
-  res.send(JSON.stringify(result));
+  res.redirect("/home");
 };
 
 const getTodoHandler = async (req, res) => {
   const { username } = req.cookies;
-  console.log({username});
-  const query = `select * from ${TABLES.todos} where username="ck"`;
+  const query = `select * from ${TABLES.todos} where username="${username}"`;
   const todos = await executeQuery(query);
-  res.send(JSON.stringify(todos));
+  res.send(todos);
 };
 
 module.exports = {

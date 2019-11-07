@@ -1,6 +1,6 @@
 import React from "react";
 
-const AddTodoPromot = () => {
+const AddTodoPrompt = () => {
   return (
     <form method="POST" action="/addTodo">
       <input type="text" name="todo" placeholder="Add your todo here" />
@@ -9,4 +9,4 @@ const AddTodoPromot = () => {
   );
 };
 
-export default AddTodoPromot;
+export default AddTodoPrompt;
