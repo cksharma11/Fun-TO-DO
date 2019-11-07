@@ -3,9 +3,14 @@ import { Link } from "react-router-dom";
 
 const Options = () => {
   return (
-    <div>
-      <Link to="/login">Login</Link>
-      <Link to="/signup">Sign Up</Link>
+    <div className="form options">
+      <h3>TO-DO</h3>
+      <Link to="/login" className="option">
+        Login
+      </Link>
+      <Link to="/signup" className="option">
+        Sign Up
+      </Link>
     </div>
   );
 };
