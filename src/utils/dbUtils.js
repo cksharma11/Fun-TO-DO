@@ -28,9 +28,20 @@ const executeSignUpQuery = async username => {
   return { error: false, message: "signup ok" };
 };
 
+const toggleTodoStateQuery = async todo => {
+  const { time, done } = todo;
+  const query = `update todos set done=${!done} where time=${time}`;
+  const result = await executeQuery(query);
+  if (result.length) {
+    return { error: false, message: `Marked as ${!done}` };
+  }
+  return { error: true, message: "Something went wrong!" };
+};
+
 module.exports = {
   insertQuery,
   selectQuery,
   executeQuery,
-  executeSignUpQuery
+  executeSignUpQuery,
+  toggleTodoStateQuery
 };
