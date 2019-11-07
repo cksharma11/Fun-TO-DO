@@ -41,7 +41,8 @@ const addTodoHandler = async (req, res) => {
 
 const getTodoHandler = async (req, res) => {
   const { username } = req.cookies;
-  const query = `select * from ${TABLES.todos} where username="${username}"`;
+  console.log({username});
+  const query = `select * from ${TABLES.todos} where username="ck"`;
   const todos = await executeQuery(query);
   res.send(JSON.stringify(todos));
 };
