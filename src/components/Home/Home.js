@@ -29,7 +29,9 @@ class Home extends React.Component {
           <h3 className="homeHeader">FUN TO-DO</h3>
           <AddTodoPrompt />
         </div>
-        <TodoList todos={this.state.todos} />
+        <div className="todos">
+          <TodoList todos={this.state.todos} />
+        </div>
       </div>
     );
   }

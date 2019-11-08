@@ -7,10 +7,10 @@ const logger = (req, res, next) => {
 };
 
 const config = {
-  host: "us-cdbr-iron-east-05.cleardb.net",
-  user: "b5d7b33082b4f5",
-  password: "143a102d",
-  database: "heroku_8c73c7264a704e7"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 };
 
 const pool = mysql.createPool(config);

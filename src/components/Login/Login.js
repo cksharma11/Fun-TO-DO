@@ -20,7 +20,7 @@ const Login = () => {
         name="password"
         required
       />
-      <input type="submit" />
+      <input type="submit" value="LOGIN"/>
     </form>
   );
 };

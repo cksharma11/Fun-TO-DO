@@ -11,7 +11,7 @@ const AddTodoPrompt = () => {
         autocomplete="off"
         required
       />
-      <input type="submit" className="addTodoButton" />
+      <input type="submit" value="ADD TODO" className="addTodoButton" />
     </form>
   );
 };

@@ -4,7 +4,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 98vh;
   width: 100vw;
   font-family: "Open Sans", sans-serif;
 }
@@ -105,6 +105,7 @@ h3 {
   margin-bottom: 10px;
   border: 1px solid gainsboro;
   padding-left: 10px;
+  border-radius: 2px;
 }
 
 button {
@@ -129,10 +130,10 @@ button:focus {
 
 .todoMainContainer {
   width: 60vw;
+  height: 85vh;
 }
 
 .markAsDone {
-  color: red;
   background: transparent;
 }
 
@@ -142,4 +143,12 @@ button:focus {
 
 .stickyHeader {
   position: sticky;
+  position: absolute;
+  top: 0;
+  width: 60%;
+}
+
+.todos {
+  position: relative;
+  margin-top: 125px;
 }
