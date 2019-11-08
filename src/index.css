@@ -82,9 +82,9 @@ h3 {
 }
 
 .addTodoBox {
-  width: 400px;
+  width: 500px;
   border-radius: 2px;
-  border: 1px solid #000;
+  border: 1px solid gainsboro;
   padding: 6px;
   margin-bottom: 10px;
 }
