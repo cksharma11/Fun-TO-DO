@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import Todo from "../Todo/Todo";
 
 class TodoList extends React.Component {
@@ -9,9 +9,9 @@ class TodoList extends React.Component {
     this.deleteTodo = this.deleteTodo.bind(this);
   }
 
-  async toggleTodoState(body) {
+async toggleTodoState(body) {
     await fetch("/toggleTodoState", {
-      method: "POST",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json"
       },
@@ -19,8 +19,7 @@ class TodoList extends React.Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res)
-        this.setState({ todos: res })
+        this.setState({ todos: res });
       });
   }
 
@@ -34,23 +33,27 @@ class TodoList extends React.Component {
     })
       .then(res => res.json())
       .then(res => {
-        console.log(res)
-        this.setState({ todos: res })
+        this.setState({ todos: res });
       });
   }
 
   componentWillReceiveProps(newProps) {
     this.setState({
       todos: newProps.todos
-    })
+    });
   }
 
   render() {
-    // console.log(this.state.todos)
     return (
       <div>
         {this.state.todos.reverse().map(todo => {
-          return <Todo todo={todo} toggleTodoState={this.toggleTodoState} deleteTodo={this.deleteTodo} />;
+          return (
+            <Todo
+              todo={todo}
+              toggleTodoState={this.toggleTodoState}
+              deleteTodo={this.deleteTodo}
+            />
+          );
         })}
       </div>
     );
