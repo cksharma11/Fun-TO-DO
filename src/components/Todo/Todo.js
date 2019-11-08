@@ -1,6 +1,6 @@
 import React from "react";
 
-const Todo = ({ todo, toggleTodoState }) => {
+const Todo = ({ todo, toggleTodoState, deleteTodo }) => {
   return (
     <div className="todoContainer">
       <input
@@ -9,7 +9,10 @@ const Todo = ({ todo, toggleTodoState }) => {
         checked={todo.done === 1}
       />
       <div className={`todoText ${todo.done ? "done" : ""}`}>{todo.todo}</div>
-      <button className="markAsDone">{`\u{1F5D1}`}</button>
+      <button
+        className="markAsDone"
+        onClick={deleteTodo.bind(null, { todo })}
+      >{`\u{1F5D1}`}</button>
     </div>
   );
 };

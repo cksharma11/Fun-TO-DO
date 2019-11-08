@@ -23,6 +23,7 @@ app.post("/signup", handlers.signUpHandler);
 app.post("/addTodo", handlers.addTodoHandler);
 app.post("/todos", handlers.getTodoHandler);
 app.post("/toggleTodoState", handlers.toggleTodoStateHandler);
+app.delete("/todo", handlers.deleteTodoHandler);
 
 app.get("*", (req, res) => {
   res.render("index.html");

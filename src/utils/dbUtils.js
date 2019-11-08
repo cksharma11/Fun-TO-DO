@@ -38,10 +38,21 @@ const toggleTodoStateQuery = async todo => {
   return { error: true, message: "Something went wrong!" };
 };
 
+const deleteQuery = async todo => {
+  const { time } = todo;
+  const query = `delete from todos where time=${time}`;
+  const result = await executeQuery(query);
+  if (result.length) {
+    return { error: false, message: `Todo ${todo} deleted` };
+  }
+  return { error: true, message: "Issue deleting todo!" };
+};
+
 module.exports = {
   insertQuery,
   selectQuery,
   executeQuery,
   executeSignUpQuery,
-  toggleTodoStateQuery
+  toggleTodoStateQuery,
+  deleteQuery
 };

@@ -2,7 +2,8 @@ const {
   insertQuery,
   executeQuery,
   executeSignUpQuery,
-  toggleTodoStateQuery
+  toggleTodoStateQuery,
+  deleteQuery
 } = require("../utils/dbUtils");
 
 const { TABLES, LABLES } = require("../constants/constants");
@@ -51,14 +52,22 @@ const toggleTodoStateHandler = async (req, res) => {
   const todo = req.body;
   await toggleTodoStateQuery(todo);
   const updatedTodo = await getTodoHandler(req, res);
-  console.log({updatedTodo})
   res.send(updatedTodo);
 };
+
+const deleteTodoHandler = async (req, res) => {
+  const { todo } = req.body;
+  await deleteQuery(todo);
+  const updatedTodo = await getTodoHandler(req, res);
+  res.send(updatedTodo);
+};
+
 
 module.exports = {
   loginHandler,
   signUpHandler,
   addTodoHandler,
   getTodoHandler,
-  toggleTodoStateHandler
+  toggleTodoStateHandler,
+  deleteTodoHandler
 };
