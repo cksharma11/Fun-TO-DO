@@ -1,8 +1,6 @@
 import React from "react";
 
 const Todo = ({ todo }) => {
-  const actionLabel = todo.done ? "Mark as undone" : "Mark as done";
-
   const toggleTodoState = async body => {
     await fetch("/toggleTodoState", {
       method: "POST",
@@ -19,13 +17,9 @@ const Todo = ({ todo }) => {
 
   return (
     <div className="todoContainer">
+      <input type="checkbox" onClick={toggleTodoState.bind(null, { todo })} />
       <div className={`todoText ${todo.done ? "done" : ""}`}>{todo.todo}</div>
-      <button
-        onClick={toggleTodoState.bind(null, { todo })}
-        className="markAsDone"
-      >
-        {actionLabel}
-      </button>
+      <button className="markAsDone">{`\u{1F5D1}`}</button>
     </div>
   );
 };
