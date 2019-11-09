@@ -6,9 +6,18 @@ const {
   deleteQuery
 } = require("../utils/dbUtils");
 
+const restrictedURLsWhenLoggedIn = ["/", "/login.html", "/signup.html"];
+
+const restrictedURLsWhenNotLoggedIn = ["/home"];
+
 const { TABLES, LABLES } = require("../constants/constants");
 
+const isLoggedIn = username => {
+  return username !== undefined;
+};
+
 const signUpHandler = async (req, res) => {
+  ``;
   const { username, password } = req.body;
   const signUpStatus = await executeSignUpQuery(username);
   if (signUpStatus.error) {
@@ -62,6 +71,19 @@ const deleteTodoHandler = async (req, res) => {
   res.send(updatedTodo);
 };
 
+const redirect = (req, res, next) => {
+  const { username } = req.cookies;
+  if (isLoggedIn(username) && restrictedURLsWhenLoggedIn.includes(req.url)) {
+    return res.redirect("/home");
+  }
+  if (
+    !isLoggedIn(username) &&
+    restrictedURLsWhenNotLoggedIn.includes(req.url)
+  ) {
+    return res.redirect("/");
+  }
+  next();
+};
 
 module.exports = {
   loginHandler,
@@ -69,5 +91,6 @@ module.exports = {
   addTodoHandler,
   getTodoHandler,
   toggleTodoStateHandler,
-  deleteTodoHandler
+  deleteTodoHandler,
+  redirect
 };

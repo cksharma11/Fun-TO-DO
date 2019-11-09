@@ -13,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
+app.use(handlers.redirect);
 app.use(express.static("build"));
 app.set("views", __dirname + "/build");
 app.engine("html", view.renderFile);
