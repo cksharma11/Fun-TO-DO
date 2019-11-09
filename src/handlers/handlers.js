@@ -17,7 +17,6 @@ const isLoggedIn = username => {
 };
 
 const signUpHandler = async (req, res) => {
-  ``;
   const { username, password } = req.body;
   const signUpStatus = await executeSignUpQuery(username);
   if (signUpStatus.error) {

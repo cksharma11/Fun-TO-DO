@@ -1,5 +1,6 @@
 const mysql = require("mysql");
 const util = require("util");
+require("dotenv").config();
 
 const logger = (req, res, next) => {
   console.log(req.method, req.url);

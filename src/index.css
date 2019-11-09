@@ -152,3 +152,36 @@ button:focus {
   position: relative;
   margin-top: 125px;
 }
+
+@media screen and (max-width: 790px) {
+  .form {
+    height: 50vh;
+    width: 65vw;
+  }
+
+  .todoContainer {
+    width: 85vw;
+    align-items: center;
+  }
+
+  #root {
+    width: 90vw;
+  }
+
+  .addTodo {
+    width: 85vw;
+  }
+
+  .homeHeader {
+    width: 85vw;
+  }
+
+  input[type="checkbox"] {
+    width: 25px;
+    height: 25px;
+  }
+
+  .todoMainContainer {
+    width: 100vw;
+  }
+}
