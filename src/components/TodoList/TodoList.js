@@ -9,7 +9,7 @@ class TodoList extends React.Component {
     this.deleteTodo = this.deleteTodo.bind(this);
   }
 
-async toggleTodoState(body) {
+  async toggleTodoState(body) {
     await fetch("/toggleTodoState", {
       method: "PATCH",
       headers: {
@@ -49,6 +49,7 @@ async toggleTodoState(body) {
         {this.state.todos.reverse().map(todo => {
           return (
             <Todo
+              key={todo.time}
               todo={todo}
               toggleTodoState={this.toggleTodoState}
               deleteTodo={this.deleteTodo}
