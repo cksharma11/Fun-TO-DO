@@ -43,7 +43,7 @@ const deleteQuery = async todo => {
   const query = `delete from todos where time=${time}`;
   const result = await executeQuery(query);
   if (result.length) {
-    return { error: false, message: `Todo ${todo} deleted` };
+    return { error: false, message: `Todo ${todo.todo} deleted` };
   }
   return { error: true, message: "Issue deleting todo!" };
 };
